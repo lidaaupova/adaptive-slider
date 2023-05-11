@@ -1,0 +1,118 @@
+.slider {
+    padding: 120px 0 160px;
+    overflow: hidden;
+    &__title {
+        font-weight: 700;
+        font-size: 50px;
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__navigation {
+        position: relative;
+        width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__navigation::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 1px;
+        width: 360px;
+        background-color: $secondary-color;
+        left: -400px;
+    }
+    &__dot {
+        position: absolute;
+        height: 1px;
+        background-color: $main-color;
+        left: -400px;
+        z-index: 1;
+        transition: all .5s;
+    }
+    &__btn {
+        position: relative;
+        display: block;
+        width: 60px;
+        height: 60px;
+        border: $secondary-color 1px solid;
+        cursor: pointer;
+        background-color: white;
+    }
+    &__btn:active {
+        background-color: $secondary-color;
+    }
+    &__btn:hover {
+        border: $main-color 1px solid;
+    }
+    &__btn::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 1px;
+        width: 15px;
+        background-color: $main-color;
+        transform: rotateZ(135deg);
+        left: 22px;
+        top: 23px;
+    }
+    &__btn::before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 1px;
+        width: 15px;
+        background-color: $main-color;
+        transform: rotateZ(40deg);
+        left: 22px;
+        bottom: 23.5px;
+    }
+    &__btn-next::after {
+        transform: rotateZ(40deg);
+    }
+    &__btn-next::before {
+        transform: rotateZ(135deg);
+    }
+    &__wrapper {
+        margin-top: 40px;
+    }
+    &__track {
+        display: flex;
+    }
+    &__item {
+        padding: 20px;
+        min-height: 420px;
+        width: 260px;
+        border: $secondary-color 1px solid;
+        transition: all .5s;
+        margin-right: 40px;
+        &_date {
+            margin-top: 10px;
+            font-size: 12px;
+            line-height: 22px;
+            opacity: .6;
+        }
+        &_title {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 26px;
+        }
+        &_descr {
+            margin-top: 10px;
+            max-width: 220px;
+            margin-top: 10px;
+            font-size: 12px;
+            line-height: 22px;
+        }
+        &-active {
+            border: $main-color 1px solid;
+        }
+    }
+    &__item:last-child {
+        margin-right: 0;
+    }
+}
