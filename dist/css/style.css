@@ -168,6 +168,9 @@ a {
   .slider__dot {
     left: -300px;
   }
+  .slider__wrapper {
+    transition: all 0.5s;
+  }
 }
 @media (max-width: 768px) {
   .container {

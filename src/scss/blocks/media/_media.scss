@@ -44,6 +44,9 @@
         &__dot {
             left: -300px;
         }
+        &__wrapper {
+            transition: all .5s;
+        }
     }
 }
 
