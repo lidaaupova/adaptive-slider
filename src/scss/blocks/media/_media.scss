@@ -110,6 +110,7 @@
         }
         &__item {
             width: 280px;
+            border: $secondary-color 1px solid;
             img {
                 width: 240px;
             }

@@ -229,6 +229,7 @@ a {
   }
   .slider__item {
     width: 280px;
+    border: #CCDDFF 1px solid;
   }
   .slider__item img {
     width: 240px;

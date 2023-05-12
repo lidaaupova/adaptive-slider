@@ -135,17 +135,6 @@ window.addEventListener('DOMContentLoaded', () => {
       activeDot.style.transform = `translateX(${positionActiveSlide * widthActiveDot}px)`;
     }
 
-    //Вешаем обработчик события на кнопки
-    function clickBtn(btn) {
-      let num = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-      btn.addEventListener('click', () => {
-        changeSlides(num);
-        changeNavigation(num);
-      });
-    }
-    clickBtn(prev, -1);
-    clickBtn(next, 1);
-
     // Адаптируем слайдер
     function adaptiveSlider() {
       const wrapper = document.querySelector('.slider__wrapper');
@@ -162,10 +151,11 @@ window.addEventListener('DOMContentLoaded', () => {
       } else if (widthContainer < 540) {
         totalVisibleSlides = 1;
       }
-      console.log(totalVisibleSlides);
 
       //Устанавливаем ширину для обёртки слайдов
       wrapper.style.width = 100 * slides.length + '%';
+
+      //Смещаем слайды
       function slideShift(n) {
         if (indexSlide > totalVisibleSlides) {
           wrapper.style.transform = `translateX(${n * (indexSlide - totalVisibleSlides + 1)}px)`;
@@ -177,17 +167,20 @@ window.addEventListener('DOMContentLoaded', () => {
           wrapper.style.transform = `translateX(0px)`;
         }
       }
-      function click(btn) {
-        btn.addEventListener('click', () => {
-          slideShift(-itemWidth);
-        });
-      }
-      click(prev);
-      click(next);
       return slideShift(-itemWidth);
     }
 
-    // adaptiveSlider();
+    //Вешаем обработчик события на кнопки
+    function clickBtn(btn) {
+      let num = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+      btn.addEventListener('click', () => {
+        changeSlides(num);
+        changeNavigation(num);
+        adaptiveSlider();
+      });
+    }
+    clickBtn(prev, -1);
+    clickBtn(next, 1);
 
     // Подключаем таймер
     const timer = setInterval(() => {
