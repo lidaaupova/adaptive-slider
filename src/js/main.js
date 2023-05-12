@@ -50,10 +50,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Адаптируем слайдер
         function adaptiveSlider() {
-            const wrapper = document.querySelector('.slider__wrapper');
-            const widthContainer = +window.getComputedStyle(container).maxWidth.slice(0, -2);
-            const distance = +window.getComputedStyle(slides[0]).marginRight.slice(0, -2);
-            const itemWidth = +window.getComputedStyle(slides[0]).width.slice(0, -2) + distance;
+            const wrapper = document.querySelector('.slider__wrapper'),
+                  widthContainer = +window.getComputedStyle(container).maxWidth.slice(0, -2),
+                  distance = +window.getComputedStyle(slides[0]).marginRight.slice(0, -2),
+                  itemWidth = slides[0].offsetWidth + distance;
 
             let totalVisibleSlides;
 
